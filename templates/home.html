@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='login.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .login-container {
+            padding-top: 20px;
+            margin-top: 70px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .login-tab {
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+
+        .login-tab.active {
+            background-color: #11218c;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        .login-form {
+            display: none;
+            padding: 20px;
+        }
+
+        .login-form.active {
+            display: block;
+        }
+
+        .login-form label {
+            font-weight: bold;
+        }
+
+        .login-button {
+            margin-top: 20px;
+        }
+        .btn-primary {
+    color: #fff;
+    background-color: #11218c;
+    border-color: #11218c;
+    border-radius: 10px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 login-container">
+                <div class="d-flex justify-content-between">
+                    <div class="login-tab admin-tab active">Admin</div>
+                    <div class="login-tab student-tab">Student</div>
+                    <div class="login-tab company-tab">Company</div>
+                </div>
+                <div class="tab-content" id="loginTabContent">
+                    <div class="login-form admin-form active" id="admin-form">
+                        <form method="post" action="{{url_for('admin')}}">
+                            <div class="form-group">
+                                <label for="admin-username">Username: </label>
+                                <input type="text" name="username" id="admin-username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="admin-password">Password: </label>
+                                <input type="password" name="password" id="admin-password" class="form-control" required>
+                            </div>
+                            <button class="btn btn-primary login-button" type="submit">Login</button>
+                        </form>
+                    </div>
+                    <div class="login-form student-form" id="student-form">
+                        <form method="post" action="{{url_for('student')}}">
+                            <div class="form-group">
+                                <label for="student-username">Student ID:</label>
+                                <input type="text" name="username" id="student-username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="student-password">Password: </label>
+                                <input type="password" name="password" id="student-password" class="form-control" required>
+                            </div>
+                            <button class="btn btn-primary login-button" type="submit">Login</button>
+                        </form>
+                    </div>
+                    <div class="login-form company-form" id="company-form">
+                        <form method="post" action="{{url_for('company')}}">
+                            <div class="form-group">
+                                <label for="company-username">Company ID: </label>
+                                <input type="text" name="username" id="company-username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company-password">Password: </label>
+                                <input type="password" name="password" id="company-password" class="form-control" required>
+                            </div>
+                            <button class="btn btn-primary login-button" type="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const adminTab = document.querySelector('.admin-tab');
+        const studentTab = document.querySelector('.student-tab');
+        const companyTab = document.querySelector('.company-tab');
+        const adminForm = document.querySelector('#admin-form');
+        const studentForm = document.querySelector('#student-form');
+        const companyForm = document.querySelector('#company-form');
+
+        adminTab.addEventListener('click', () => {
+            adminTab.classList.add('active');
+            studentTab.classList.remove('active');
+            companyTab.classList.remove('active');
+            adminForm.classList.add('active');
+            studentForm.classList.remove('active');
+            companyForm.classList.remove('active');
+        });
+
+        studentTab.addEventListener('click', () => {
+            adminTab.classList.remove('active');
+            studentTab.classList.add('active');
+            companyTab.classList.remove('active');
+            adminForm.classList.remove('active');
+            studentForm.classList.add('active');
+            companyForm.classList.remove('active');
+        });
+
+        companyTab.addEventListener('click', () => {
+            adminTab.classList.remove('active');
+            studentTab.classList.remove('active');
+            companyTab.classList.add('active');
+            adminForm.classList.remove('active');
+            studentForm.classList.remove('active');
+            companyForm.classList.add('active');
+        });
+    </script>
+</body>
+
+</html>

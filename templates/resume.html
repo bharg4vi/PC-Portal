@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume Builder</title>
+</head>
+<body>
+  <h1>Resume Builder</h1>
+  <form method="POST" action="/generate_resume">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required><br><br>
+
+    <label for="education">Education:</label>
+    <textarea name="education" id="education" rows="3" required></textarea><br><br>
+
+    <label for="experience">Experience:</label>
+    <textarea name="experience" id="experience" rows="3" required></textarea><br><br>
+
+    <label for="skills">Skills:</label>
+    <input type="text" name="skills" id="skills" required><br><br>
+
+    <!-- Add more fields as needed -->
+
+    <input type="submit" value="Generate Resume">
+  </form>
+  <div id="popup1" class="overlay">
+    <div class="popup">
+        <div class="container">
+            <h4>RESUME TEMPLATES</h4>   
+            <a class="close" href="#">&times;</a>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Choose your own style to make resume</p>
+                </div>
+                <div class="col-md-12">
+                    <h5>PERSONAL INFORMATION</h5>
+                </div>
+            </div>
+
+
+            <form class="needs-validation" novalidate>
+                <div class="form-row form-group">
+                    <div class="col-md-4">
+                        <label for="name">Full name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Full name" required>
+                        <div class="invalid-feedback"> Enter your Full name.</div>
+                    </div>   
+                    <div class="col-md-4">
+                        <label for="dob">Date Of Birth</label>
+                        <input type="date" class="form-control" id="dob" placeholder="enter your dob" required>
+                        <div class="invalid-feedback"> Enter your date of birth.</div>
+                    </div> 
+                    <div class="col-md-4">
+                        <label for="email">Email Address</label>
+                        <input type="text" class="form-control" id="email" placeholder="enter your email"  required>
+                        <div class="invalid-feedback"> Enter your email address.</div>
+                    </div> 
+                    <div class="col-md-4">
+                        <label for="phnum">Phone number</label>
+                        <input type="text" class="form-control" id="phnum" placeholder="enter your phone number"  required>
+                        <div class="invalid-feedback"> Enter your phone number.</div>
+                    </div> 
+                    <div class="col-md-4">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="enter your city."  required>
+                        <div class="invalid-feedback"> Enter your city.</div>
+                    </div>  
+                    <div class="col-md-4">
+                        <label for="city">State</label>
+                        <input type="text" class="form-control" id="state" placeholder="enter your state."  required>
+                        <div class="invalid-feedback"> Enter your state.</div>
+                    </div> 
+                    <div class="col-md-12">
+                        <label for="ucareerob">Career Objective</label>
+                        <textarea rows="5"  class="form-control" id="ucareerob" placeholder="enter your Career Objectives."  required></textarea>
+                        <div class="invalid-feedback"> Enter your career Objective.</div>
+                    </div>
+                    <div class="col-md-12">
+                            <label for="uaboutself">About your Self</label>
+                            <textarea rows="5"  class="form-control" id="uaboutself" placeholder="enter about your self"  ></textarea>
+                            <div class="invalid-feedback"> Enter about you.</div>
+                        </div> 
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>EDUCATION DETAILS</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="city">Course / Graduation</label>
+                        <input type="text" class="form-control" id="course" placeholder="Enter your course name."  >
+                        <div style="color: red;display: none" id="co_err">**enter Course.</div>
+                    </div>  
+                    <div class="col-md-6">
+                        <label for="city">College / Institute</label>
+                        <input type="text" class="form-control" id="college" placeholder="Enter your college name."  >
+                        <div style="color: red;display: none" id="col_err"> **enter College.</div>
+                    </div> 
+                    <div class="col-md-4">
+                        <label for="city">Graduated Month</label>
+                        <select class="form-control" id="month"> 
+                                <option>Please select One..</option>
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                        </select>
+                        <div style="color: red;display: none" id="select_month_err"> **select the month.</div>
+                    </div> 
+                    <div class="col-md-4">
+                        <label for="city">Graduated Year</label>
+                        <input type="number" min="1990" max="2060" class="form-control" id="year" placeholder="Enter year."  >
+                        <div style="color: red;display: none" id="year_err"> **enter valid year.</div>
+                    </div> 
+                    <div class="col-md-2">
+                        <label></label>
+                        <input type="button" value="Add data" style="width: 100%;margin-top: 8px"  class="btn" onclick="addcourse()">
+                    </div> 
+                    <div class="col-md-2">
+                        <label></label>
+                        <input type="button" value="Delete data" style="width: 100%;margin-top: 8px"  class="btn" onclick="myDeleteFunction()">
+                    </div> 
+                    <div class="col-md-12" style="padding: 20px;">
+                        <table id="education_data" style="width: 100%;margin-top: 12px">
+                           
+                        </table>
+                    </div>  
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                            <h5>ACHIEVEMENTS</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="achivement">Achievements</label>
+                        <textarea rows="4"  class="form-control" id="achivement" placeholder="enter your achievement.."  ></textarea>
+                        <div style="color: red;display: none" id="achivement_err">**enter achievement.</div>
+                    </div>  
+                    <div class="col-md-3">
+                        <label></label>
+                        <input type="button" value="Add achievement" style="width: 100%;margin-top: 8px"  class="btn" onclick="addache()">
+                    </div>
+                    <div class="col-md-3">
+                        <label></label>
+                        <input type="button" value="Delete achievement" style="width: 100%;margin-top: 8px"  class="btn" onclick="achivementDeleteFunction()">
+                    </div>  
+                    <div class="col-md-12" style="padding: 20px;">
+                        <table id="acheivement_data" style="width: 100%;margin-top: 12px">
+                        </table>
+                    </div>  
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <h5>PERSONAL SKILLS</h5>
+                        </div>
+                        <div class="col-md-6">
+                             <label for="skills">Personal Skills </label>
+                            <textarea rows="4"  class="form-control" id="skills" placeholder="enter your achievement.." ></textarea>
+                            <div style="color: red;display: none" id="skills_err">**enter your skills.</div>
+                        </div>  
+                        <div class="col-md-3">
+                            <label></label>
+                             <input type="button" value="Add skills" style="width: 100%;margin-top: 8px"  class="btn" onclick="addskills()">
+                        </div>
+                        <div class="col-md-3">
+                            <label></label>
+                            <input type="button" value="Delete skills" style="width: 100%;margin-top: 8px"  class="btn" onclick="skillsDeleteFunction()">
+                        </div>  
+                        <div class="col-md-12" style="padding: 20px;">
+                            <table id="skill_data" style="width: 100%;margin-top: 12px">
+                            </table>
+                        </div>  
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>PERSONAL DETAILS</h5>
+                        </div>
+                            
+                    </div>
+                    <div class="form-row form-group">
+                        <div class="col-md-4">
+                            <label for="fname">Father's Name</label>
+                            <input type="text" class="form-control" id="fname" placeholder="enter your father's name" required>
+                            <div class="invalid-feedback"> Enter your Full name.</div>
+                        </div>   
+                        <div class="col-md-4">
+                            <label for="mname">Mother's Name</label>
+                            <input type="text" class="form-control" id="mname" placeholder="enter your Mother's name" required>
+                            <div class="invalid-feedback"> Enter your date of birth.</div>
+                        </div> 
+                        <div class="col-md-12">
+                            <label for="paddress">Permanent Address</label>
+                            <textarea rows="4"  class="form-control" id="paddress" placeholder="enter your address.."  required></textarea>
+                            <div class="invalid-feedback">**enter address.</div>
+                         </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <button class="btn btn-primary" type="submit" >Submit form</button>
+                        <a href="#" class="btn btn-danger">Cancel</a>
+                    </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../static/js/jquery-2.1.3.js"></script>
+<script src="../static/js/my.js"></script>
+</body>
+</body>
+</html>

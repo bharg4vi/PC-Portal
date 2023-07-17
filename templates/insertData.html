@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Company or Student</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<style>
+  body{
+    padding: 20px;
+  }
+</style>
+<body>
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="company-tab" data-toggle="tab" href="#company-form">Companies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="student-tab" data-toggle="tab" href="#student-form">Students</a>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-3">
+      <div class="tab-pane fade show active" id="company-form">
+        <h2>Add Company</h2>
+        <form method="POST" action="/gen_company">
+          <!-- Company form fields -->
+          <div class="form-group">
+            <label for="company-name">Company Name:</label>
+            <input type="text" class="form-control" id="company-name" name="company_name" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="student-form">
+        <h2>Add Students</h2>
+        <form method="POST" action="/add_student">
+          <!-- Student form fields -->
+          <div class="form-group">
+            <label for="student-start-id">Start ID:</label>
+            <input type="text" class="form-control" id="student-start-id" name="student_start_id" required>
+          </div>
+          <div class="form-group">
+            <label for="student-end-id">End ID:</label>
+            <input type="text" class="form-control" id="student-end-id" name="student_end_id" required>
+          </div>
+          <!-- Add more student form fields as needed -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Include Bootstrap JS -->
+  <script>
+    // JavaScript to switch between tabs
+    document.getElementById("company-tab").addEventListener("click", function(){
+      document.getElementById("company-form").classList.add("show", "active");
+      document.getElementById("student-form").classList.remove("show", "active");
+  
+      // Update tab appearance
+      document.getElementById("company-tab").classList.add("active");
+      document.getElementById("student-tab").classList.remove("active");
+    });
+  
+    document.getElementById("student-tab").addEventListener("click", function(){
+      document.getElementById("student-form").classList.add("show", "active");
+      document.getElementById("company-form").classList.remove("show", "active");
+      document.getElementById("student-tab").classList.add("active");
+      document.getElementById("company-tab").classList.remove("active");
+    });
+  </script>
+  
+</body>
+</html>

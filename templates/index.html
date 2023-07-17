@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+
+<body>
+
+
+      <div>
+        <ul class="navbar-default">
+            <li class="navbar-logo" onclick="toggleSideNav()">
+                <div class="container">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </li>
+            <li>
+                <a class="navbar-header" href="{{url_for('index')}}">TCP PORTAL</a>
+
+            </li>
+        </ul>
+        <div id="sidenav" class="sidenav">
+            <div onclick="toggleSubfunctions('sidenav-subfunctionsSQL')">
+                <a href="{{ url_for('static', filename='resume.html') }}"><i class="fa fa-exchange"></i>Generate Resume</a>
+          </div>
+          <div onclick="toggleSubfunctions('sidenav-subfunctionsConfig')">
+            <a href="#"><i class="fa fa-tachometer"></i> Configurations</a>             
+          </div>
+          <div onclick="toggleSubfunctions('sidenav-subfunctionsIVR')">
+            <a href="#"><i class="fa fa-tachometer"></i> IVR</a>
+          </div>
+          <div onclick="toggleSubfunctions('sidenav-subfunctionsMobile')">
+            </div>
+          </div>
+        </div>
+      </div> 
+ <div class="main">       
+<div class="detailsForm">
+<form class="enterDetails">  
+    APP 1: 
+    <br>
+    <label for="selectServer">Skills :</label>
+    <select id="server" name="server">
+      <option selected="selected" value="0">Select Skills</option>
+      <option value="ai-ml">AI / ML</option>
+      <option value="python">Python</option>
+      <option value="c">C</option>
+      <option value="c++">C++</option>
+      <option value="java">Java</option>
+      <option value="javascript">JavaScript</option>
+      <option value="sql">SQL</option>
+      <option value="web-development">Web development</option>
+      <option value="cloud-computing">Cloud computing</option>
+      <option value="agile-development">Agile development</option>
+      <option value="version-control">Version control</option>
+      <option value="testing">Testing</option>
+      <option value="debugging">Debugging</option>
+      <option value="operating-systems">Operating systems</option>
+      <option value="data-structures-and-algorithms">Data structures and algorithms</option>
+      <option value="software-design">Software design</option>
+      <option value="software-testing">Software testing</option>
+      <option value="cicd">CI/CD</option>
+      <option value="devops">DevOps</option>
+      <option value="security">Security</option>
+      <option value="machine-learning">Machine learning</option>
+      <option value="blockchain">Blockchain</option>
+      <option value="data-analysis">Data analysis</option>
+      <option value="data-visualization">Data visualization</option>
+      <option value="business-analytics">Business analytics</option>
+      <option value="data-science">Data science</option>
+    </select>
+    <label for="selectStatus">Batch: </label>
+    <select id = "Status" name="Status"> 
+        <option selected="selected" value="0">Select Batch</option>
+        <option value="Failed">2024</option>
+        <option value="Running">2025</option>
+    </select>
+        <label for="enterJob">Job Name:</label>
+        <input type="text" id="jobName" class="jobName">
+        <input type="submit" class = "Filter" value="Filter"><br><br>        
+</form>
+<br>
+    <table id="table1" class="table table-striped" >
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Skills</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><input class="Details" type="submit" value="Details"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+ 
+  
+      <footer> © BK PROJECTS </footer>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#info').DataTable();
+      });
+    
+      function toggleSideNav() {
+      var sidenav = document.getElementById("sidenav");
+      var main = document.querySelector('.main');
+  
+      sidenav.classList.toggle("open");
+      main.classList.toggle("shift");
+    }
+      $(document).ready(function() {
+    $('#table1').DataTable({
+      "paging": true,
+      "pageLength": 25
+    });
+
+    $('#table2').DataTable({
+      "paging": true,
+      "pageLength": 25
+    });
+
+    $('#table3').DataTable({
+      "paging": true,
+      "pageLength": 25
+    });
+  });
+    
+      function toggleSubfunctions(subfunctionsId) {
+        var subfunctions = document.getElementById(subfunctionsId);
+        subfunctions.classList.toggle("show");
+      }
+    </script>
+    
