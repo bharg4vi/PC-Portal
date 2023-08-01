@@ -11,83 +11,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
 </head>
+<style>
+  /* Style The Dropdown Button */
+  .dropbtn {
+    background-color: #233a52 ;
+    color: white;
+    border: none;
+    padding: 9px;
+    font-size: 9px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    width: auto;
+    background-color: #3e3e8e;
+  }
+  </style>
 
 <body>
 
-
+  
       <div>
-        <ul class="navbar-default">
+        <ul style="height: 50px;" class="navbar-default">
             <li class="navbar-logo" onclick="toggleSideNav()">
-                <div class="container">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
             </li>
             <li>
-                <a class="navbar-header" href="{{url_for('index')}}">TCP PORTAL</a>
+                <a class="navbar-header" href="{{url_for('index')}}">TPC PORTAL</a>
 
             </li>
         </ul>
-        <div id="sidenav" class="sidenav">
-            <div onclick="toggleSubfunctions('sidenav-subfunctionsSQL')">
-                <a href="{{ url_for('static', filename='resume.html') }}"><i class="fa fa-exchange"></i>Generate Resume</a>
-          </div>
-          <div onclick="toggleSubfunctions('sidenav-subfunctionsConfig')">
-            <a href="#"><i class="fa fa-tachometer"></i> Configurations</a>             
-          </div>
-          <div onclick="toggleSubfunctions('sidenav-subfunctionsIVR')">
-            <a href="#"><i class="fa fa-tachometer"></i> IVR</a>
-          </div>
-          <div onclick="toggleSubfunctions('sidenav-subfunctionsMobile')">
-            </div>
-          </div>
-        </div>
-      </div> 
  <div class="main">       
 <div class="detailsForm">
-<form class="enterDetails">  
-    APP 1: 
-    <br>
-    <label for="selectServer">Skills :</label>
-    <select id="server" name="server">
-      <option selected="selected" value="0">Select Skills</option>
-      <option value="ai-ml">AI / ML</option>
-      <option value="python">Python</option>
-      <option value="c">C</option>
-      <option value="c++">C++</option>
-      <option value="java">Java</option>
-      <option value="javascript">JavaScript</option>
-      <option value="sql">SQL</option>
-      <option value="web-development">Web development</option>
-      <option value="cloud-computing">Cloud computing</option>
-      <option value="agile-development">Agile development</option>
-      <option value="version-control">Version control</option>
-      <option value="testing">Testing</option>
-      <option value="debugging">Debugging</option>
-      <option value="operating-systems">Operating systems</option>
-      <option value="data-structures-and-algorithms">Data structures and algorithms</option>
-      <option value="software-design">Software design</option>
-      <option value="software-testing">Software testing</option>
-      <option value="cicd">CI/CD</option>
-      <option value="devops">DevOps</option>
-      <option value="security">Security</option>
-      <option value="machine-learning">Machine learning</option>
-      <option value="blockchain">Blockchain</option>
-      <option value="data-analysis">Data analysis</option>
-      <option value="data-visualization">Data visualization</option>
-      <option value="business-analytics">Business analytics</option>
-      <option value="data-science">Data science</option>
-    </select>
-    <label for="selectStatus">Batch: </label>
-    <select id = "Status" name="Status"> 
-        <option selected="selected" value="0">Select Batch</option>
-        <option value="Failed">2024</option>
-        <option value="Running">2025</option>
-    </select>
-        <label for="enterJob">Job Name:</label>
-        <input type="text" id="jobName" class="jobName">
-        <input type="submit" class = "Filter" value="Filter"><br><br>        
+  <form class="enterDetails" action="{{ url_for('filter_results') }}" method="POST">
+    APP 1: <br>
+    <!--
+        <div class="dropdown">
+          <label for="selectSkills">Skills:</label>
+          <button class="dropbtn">Dropdown</button>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="#">AI / ML</a>
+            <a class="dropdown-item" href="#">Python</a>
+            <a class="dropdown-item" href="#">C</a>
+            <a class="dropdown-item" href="#">C++</a>
+            <a class="dropdown-item" href="#">Java</a>
+            <a class="dropdown-item" href="#">JavaScript</a>
+            <a class="dropdown-item" href="#">SQL</a>
+            <a class="dropdown-item" href="#">Web development</a>
+            <a class="dropdown-item" href="#">Cloud computing</a>
+            <a class="dropdown-item" href="#">Agile development</a>
+            <a class="dropdown-item" href="#">Version control</a>
+            <a class="dropdown-item" href="#">Testing</a>
+            <a class="dropdown-item" href="#">Debugging</a>
+            <a class="dropdown-item" href="#">Operating systems</a>
+            <a class="dropdown-item" href="#">Data structures and algorithms</a>
+            <a class="dropdown-item" href="#">Software design</a>
+            <a class="dropdown-item" href="#">Software testing</a>
+            <a class="dropdown-item" href="#">CI/CD</a>
+            <a class="dropdown-item" href="#">DevOps</a>
+            <a class="dropdown-item" href="#">Security</a>
+            <a class="dropdown-item" href="#">Machine learning</a>
+            <a class="dropdown-item" href="#">Blockchain</a>
+            <a class="dropdown-item" href="#">Data analysis</a>
+            <a class="dropdown-item" href="#">Data visualization</a>
+            <a class="dropdown-item" href="#">Business analytics</a>
+            <a class="dropdown-item" href="#">Data science</a>
+          </div>      
+      </form>
+    </div>
+    -->
+    
+
+  
+   
 </form>
 <br>
     <table id="table1" class="table table-striped" >
@@ -101,14 +130,19 @@
         </tr>
       </thead>
       <tbody>
+        {% for data in data %}    
+        {% set ski_data = skill[loop.index0] %}
         <tr>
-          <td>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><input class="Details" type="submit" value="Details"></td>
+          <td>{{ data[0] }}</td>
+          <td>{{data[1]}}</td>
+          <td>{{data[3]}}</td>
+          <td>{{ski_data[0]}}</td>
+          <form action="{{ url_for('details') }}" method="POST">
+          <td><button name="details" value="{{data[0]}}" style="background-color: #3e3e8e; color: white;">Details</button></td>
+          </form>
         </tr>
+       
+        {% endfor %}
       </tbody>
     </table>
     </div>
@@ -118,9 +152,18 @@
     </body>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Add jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Add Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script>
+
+  
+
       $(document).ready(function() {
         $('#info').DataTable();
       });
@@ -153,5 +196,7 @@
         var subfunctions = document.getElementById(subfunctionsId);
         subfunctions.classList.toggle("show");
       }
+      
+   
     </script>
     

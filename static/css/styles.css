@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
 .main {
   margin-top: 0px;
-  background-color: rgb(238, 241, 248);
   transition: margin-left 0.5s;
 }
 ul {
@@ -377,14 +376,9 @@ form {
 .container {
   width:50px !important;
 }
-thead {
-  border-top: 0;
-  color: white !important;
-  background-color: #2e4670 !important;
-}
+
 input, button, select, textarea {
-  border: 1px solid #e9f2ff;
-  background-color: #e9f2ff;
+ 
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -399,9 +393,7 @@ input, button, select, textarea {
   margin-left: 3px;
   height: 25px;
 }
-.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
-  background-color: #eff5ff !important;
-}
+
 .navbar-default {
   border: none !important;
   border-radius: 0px !important;
@@ -411,11 +403,7 @@ input, button, select, textarea {
 }
 
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    color: #333 !important;
-    border: 1px solid #445ba5;
-    background-color: white !important;
-}
+
 table.dataTable.no-footer {
   padding-top: 15px !important;
   border-bottom: 1px solid #111;

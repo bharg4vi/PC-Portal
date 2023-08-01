@@ -117,7 +117,6 @@
             </div>
        </section>
 
-
        <div id="popup1" class="overlay">
             <div class="popup">
                 <div class="container">
@@ -178,52 +177,57 @@
                                 <h5>EDUCATION DETAILS</h5>
 
                             </div>
-                        
+                            <form action="/add_education" method="POST">
                             <div class="col-md-6">
                                 <label for="city">Course / Graduation</label>
                                 <input name="course" type="text" class="form-control" id="course" placeholder="Enter your course name."  >
                             </div>  
                             <div class="col-md-6">
                                 <label for="cpi">CPI</label>
-                                <input type="text" name="cpi" class="form-control" id="cpi" placeholder="Enter your CPI.">
+                                <input type="text" name="cpi" class="form-control" id="course" placeholder="Enter your CPI."  >
                             </div>  
-                            
                             <div class="col-md-6">
-                                <label for="college">College / Institute</label>
-                                <input name="college" type="text" class="form-control" id="college" placeholder="Enter your college name.">
-                                <div style="color: red; display: none;" id="col_err">**enter College.</div>
+                                <label for="city">College / Institute</label>
+                                <input type="text" class="form-control" id="college" placeholder="Enter your college name."  >
+                                <div style="color: red;display: none" id="col_err"> **enter College.</div>
                             </div> 
-                            
                             <div class="col-md-4">
                                 <label for="city">Graduated Month</label>
-                                <select name="graduation_month" class="form-control" id="month"> 
-                                    <option value="0">Please select One..</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
-                                    <option value="March">March</option>
-                                    <option value="April">April</option>
-                                    <option value="May">May</option>
-                                    <option value="June">June</option>
-                                    <option value="July">July</option>
-                                    <option value="August">August</option>
-                                    <option value="September">September</option>
-                                    <option value="October">October</option>
-                                    <option value="November">November</option>
-                                    <option value="December">December</option>
+                                <select class="form-control" id="month"> 
+                                        <option>Please select One..</option>
+                                        <option>January</option>
+                                        <option>February</option>
+                                        <option>March</option>
+                                        <option>April</option>
+                                        <option>May</option>
+                                        <option>June</option>
+                                        <option>July</option>
+                                        <option>August</option>
+                                        <option>September</option>
+                                        <option>October</option>
+                                        <option>November</option>
+                                        <option>December</option>
                                 </select>
-                                <div style="color: red; display: none;" id="select_month_err">**select the month.</div>
+                                <div style="color: red;display: none" id="select_month_err"> **select the month.</div>
                             </div> 
-                            
                             <div class="col-md-4">
-                                <label for="graduation_year">Graduated Year</label>
-                                <input name="graduation_year" type="number" min="1990" max="2060" class="form-control" id="year" placeholder="Enter year.">
+                                <label for="city">Graduated Year</label>
+                                <input type="number" min="1990" max="2060" class="form-control" id="year" placeholder="Enter year."  >
+                                <div style="color: red;display: none" id="year_err"> **enter valid year.</div>
                             </div> 
-                            
                             <div class="col-md-2">
                                 <label></label>
-                                <input type="submit" value="Add data" style="width: 100%; margin-top: 8px;" class="btn" id="addDataBtn">
-                            </div>
-                                
+                              
+                                <input type="submit" value="Add data" style="width: 100%;margin-top: 8px"  class="btn">
+                              
+                            </div> 
+                        </form>
+                        <form action="/delete_education" method="POST">
+                            <div class="col-md-2">
+                                <label></label>
+                                <input type="button" value="Delete data" style="width: 100%;margin-top: 8px"  class="btn" onclick="myDeleteFunction()">
+                            </div> 
+                        </form>
                             <div class="col-md-12" style="padding: 20px;">
                                 <table id="education_data" style="width: 100%;margin-top: 12px">
                                    
@@ -243,7 +247,7 @@
                             </div>  
                             <div class="col-md-3">
                                 <label></label>
-                                <input type="button" value="Add achievement" style="width: 100%;margin-top: 8px"  class="btn" onclick="addAchievementData()">
+                                <input type="button" value="Add achievement" style="width: 100%;margin-top: 8px"  class="btn" onclick="addache()">
                             </div>
                             <div class="col-md-3">
                                 <label></label>
@@ -255,46 +259,48 @@
                             </div>  
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <h5>SKILLS</h5>
+                                <div class="col-md-12">
+                                        <h5>SKILLS</h5>
+                                </div>
+                                <div class="col-md-6">
+                                     <label for="skills">Skills </label>
+                                    <textarea rows="4"  class="form-control" id="skills" placeholder="enter your achievement.." ></textarea>
+                                    <div style="color: red;display: none" id="skills_err">**enter your skills.</div>
+                                </div>  
+                                <div class="col-md-3">
+                                    <label></label>
+                                     <input type="button" value="Add skills" style="width: 100%;margin-top: 8px"  class="btn" onclick="addskills()">
+                                </div>
+                                <div class="col-md-3">
+                                    <label></label>
+                                    <input type="button" value="Delete skills" style="width: 100%;margin-top: 8px"  class="btn" onclick="skillsDeleteFunction()">
+                                </div>  
+                                <div class="col-md-12" style="padding: 20px;">
+                                    <table id="skill_data" style="width: 100%;margin-top: 12px">
+                                    </table>
+                                </div>  
                             </div>
-                            <div class="col-md-6">
-                                <label for="skills">Skills</label>
-                                <textarea rows="4" class="form-control" id="skills" placeholder="Enter your skills"></textarea>
-                                <div style="color: red; display: none" id="skills_err">**Enter your skills.</div>
-                            </div>
-                            <div class="col-md-3">
-                                <label></label>
-                                <input type="button" value="Add skills" style="width: 100%; margin-top: 8px" class="btn" onclick="addSkills()">
-                            </div>
-                            <div class="col-md-3">
-                                <label></label>
-                                <input type="button" value="Delete skills" style="width: 100%; margin-top: 8px" class="btn" onclick="deleteSkills()">
-                            </div>
-                            <div class="col-md-12" style="padding: 20px;">
-                                <table id="skill_data" style="width: 100%; margin-top: 12px">
-                                </table>
-                            </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <h5>PERSONAL DETAILS</h5>
-                                    <br>
-                                </div>     
+                                </div>
+                                    
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-md-2">
+                                <div class="col-md-4">
                                     <label for="fname">Father's Name</label>
-                                    <input name="fname" type="text" class="form-control" id="fname" placeholder="enter your father's name" required>
+                                    <input type="text" class="form-control" id="fname" placeholder="enter your father's name" required>
                                     <div class="invalid-feedback"> Enter your Full name.</div>
                                 </div>   
                                 <div class="col-md-4">
                                     <label for="mname">Mother's Name</label>
-                                    <input name="mname" type="text" class="form-control" id="mname" placeholder="enter your Mother's name" required>
+                                    <input type="text" class="form-control" id="mname" placeholder="enter your Mother's name" required>
                                     <div class="invalid-feedback"> Enter your date of birth.</div>
                                 </div> 
                                 <div class="col-md-12">
                                     <label for="paddress">Permanent Address</label>
-                                    <textarea name="paddress" rows="4"  class="form-control" id="paddress" placeholder="enter your address.."  required></textarea>
+                                    <textarea rows="4"  class="form-control" id="paddress" placeholder="enter your address.."  required></textarea>
                                     <div class="invalid-feedback">**enter address.</div>
                                  </div>
                             </div>
@@ -303,7 +309,6 @@
                                 <button class="btn btn-primary" type="submit" >Submit form</button>
                                 <a href="#" class="btn btn-danger">Cancel</a>
                             </div>
-                            </div>
 
                     </form>
                 </div>
@@ -311,13 +316,8 @@
         </div>
         <header style="margin: 50px;" class="h_color" id="head">
             <div class="text-left">
-                <div style="margin: 50px; background-color: white;"class="container">
-                    <div class="row">
-                                <a style="margin: 20px;" class="btn btn-primary" href="#popup1">Edit your data</a>
-
-                                <input style=" margin: 20px; background-color: green; color: white;" type="button" onclick="printDiv()" class="btn btn-warning" value="Print Resume">
-                    </div>
-                    
+                <div style="margin: 50px;"class="container">
+                   
                 </div>
             </div>
         </header>
@@ -412,59 +412,9 @@
                         objCells.item(0).innerHTML + "</li>";
             document.getElementById('skills_data_li').innerHTML = document.getElementById('skills_data_li').innerHTML + data;
             }
-            fetch('/get_achievements', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        var achievementsDiv = document.getElementById('achievements');
-        achievementsDiv.innerHTML = ''; // Clear the existing achievements data
-        for (var i = 0; i < data.length; i++) {
-          // Add each achievement as a new line in the achievementsDiv
-          achievementsDiv.innerHTML += data[i].achievement + '<br>';
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
             
         }
-        function addAchievementData() {
-    var achievement = document.getElementById('achivement').value;
-    if (achievement === '') {
-      document.getElementById('achivement_err').style.display = '';
-      document.getElementById('achivements').style.display = 'none';
-    } else {
-      // Send an AJAX POST request to the Flask server to add the achievement
-      fetch('/add_achievement', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          achievement: achievement
-        })
-      })
-        .then(response => response.json())
-        .then(data => {
-          // Handle the response from the server
-          console.log(data); // Use the response data as needed
 
-          // Clear the input field and show success message
-          document.getElementById('achivement').value = '';
-          document.getElementById('achivement_err').style.display = 'none';
-          document.getElementById('achivements').style.display = '';
-          fetchData(); // Fetch and update achievements to display the new one
-        })
-        .catch(error => {
-          // Handle any errors that occur during the AJAX request
-          console.error('Error:', error);
-        });
-    }
-  }
 
         function printDiv() 
             {
@@ -523,168 +473,35 @@
                 cell2.innerHTML = data[i].cpi;
                 cell3.innerHTML = data[i].college_name;
                 cell4.innerHTML = data[i].graduation_month + ' ' + data[i].graduation_year;
-                cell5.innerHTML = `<button onclick="deleteCourseData(${data[i].education_id})">Delete</button>`;
+                cell5.innerHTML = '<button onclick="deleteCourse(' + data[i].education_id + ')">Delete</button>';
             }
         })
         .catch(error => {
             console.error('Error:', error);
         });
     }
-    function deleteCourseData(educationId) {
-    // Send an AJAX POST request to the Flask server to delete the course
-    fetch('/delete_education', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        education_id: educationId
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Handle the response from the server
-        console.log(data); // Use the response data as needed
-        // Fetch data again to update the table after deleting the course
-        fetchData();
-      })
-      .catch(error => {
-        // Handle any errors that occur during the AJAX request
-        console.error('Error:', error);
-      });
-  }
+
+    function deleteCourse(educationId) {
+        // Send a DELETE request to the server to delete the education data
+        fetch('/delete_education/' + educationId, {
+            method: 'DELETE'
+        })
+        .then(response => response.text())
+        .then(result => {
+            // Handle the response from the server (e.g., show success message)
+            console.log(result);
+            // Refresh the table to show updated data
+            fetchData();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
     // Fetch education data and populate the table when the page loads
     document.addEventListener('DOMContentLoaded', function() {
         fetchData();
     });
-    function delEducationData() {
-    // Retrieve the form data
-    const formElement = document.querySelector('.needs-validation');
-    const formData = new FormData(formElement);
-
-    // Send an AJAX POST request to the Flask server
-    fetch('/delete_education', {
-      method: 'POST',
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data); 
-      })
-      .catch(error => {
-        // Handle any errors that occur during the AJAX request
-        console.error('Error:', error);
-      });
-  }
-  function addEducationData() {
-    // Retrieve the form data
-    const formElement = document.querySelector('.needs-validation');
-    const formData = new FormData(formElement);
-
-    // Send an AJAX POST request to the Flask server
-    fetch('/add_education', {
-      method: 'POST',
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Handle the response from the server
-        if ("new_education_id" in data) {
-          // Get the new_education_id from the response
-          const newEducationId = data.new_education_id;
-
-          // Use the newEducationId as needed (e.g., update the UI, etc.)
-          console.log("Newly generated education_id:", newEducationId);
-
-          // Call the fetchData function to update the table with the newly added record
-          fetchData();
-        } else {
-          // Handle the error case, if any
-          console.error("Error:", data.error);
-        }
-      })
-      .catch(error => {
-        // Handle any errors that occur during the AJAX request
-        console.error('Error:', error);
-      });
-  }
-
-  // Add an event listener to the "Add data" button
-  document.getElementById('addDataBtn').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-
-    // Call the addEducationData function when the button is clicked
-    addEducationData();
-  });
-  function addSkills() {
-        const skillsValue = document.getElementById('skills').value;
-        if (skillsValue.trim() === '') {
-            document.getElementById('skills_err').style.display = '';
-        } else {
-            document.getElementById('skills_err').style.display = 'none';
-
-            // Send the skills data to the Flask server for adding
-            fetch('/add_skills', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `skills=${encodeURIComponent(skillsValue)}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response from the server
-                console.log(data); // Use the response data as needed
-
-                // If the skills were successfully added, update the table
-                if (data === 'Skills added successfully') {
-                    var table = document.getElementById("skill_data");
-                    var row = table.insertRow(0);
-                    var cell1 = row.insertCell(0);
-                    cell1.innerHTML = skillsValue;
-                }
-            })
-            .catch(error => {
-                // Handle any errors that occur during the AJAX request
-                console.error('Error:', error);
-            });
-        }
-    }
-
-    function deleteSkills() {
-        const skillsValue = document.getElementById('skills').value;
-        if (skillsValue.trim() === '') {
-            document.getElementById('skills_err').style.display = '';
-        } else {
-            document.getElementById('skills_err').style.display = 'none';
-
-            // Send the skills data to the Flask server for deleting
-            fetch('/delete_skills', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `skills=${encodeURIComponent(skillsValue)}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response from the server
-                console.log(data); // Use the response data as needed
-
-                // If the skills were successfully deleted, update the table
-                if (data === 'Skills deleted successfully') {
-                    var table = document.getElementById("skill_data");
-                    if (table.rows.length > 0) {
-                        table.deleteRow(0);
-                    }
-                }
-            })
-            .catch(error => {
-                // Handle any errors that occur during the AJAX request
-                console.error('Error:', error);
-            });
-        }
-    }
     </script>
     </body>
 </html>
