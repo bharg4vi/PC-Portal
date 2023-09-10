@@ -390,24 +390,17 @@
             document.getElementById('achivements_data_li').innerHTML="";
             // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
             for (i = 0; i < myTab.rows.length; i++) {
-                // GET THE CELLS COLLECTION OF THE CURRENT ROW.
-                  var objCells = myTab.rows.item(i).cells;
-                // LOOP THROUGH EACH CELL OF THE CURENT ROW TO READ CELL VALUES.
-                
+                var objCells = myTab.rows.item(i).cells;                
                 data = "<li style='font-size:18px;margin-bottom: 5px'>"+
-                        objCells.item(0).innerHTML + "</li>";
-               document.getElementById('achivements_data_li').innerHTML = document.getElementById('achivements_data_li').innerHTML + data;
+                objCells.item(0).innerHTML + "</li>";
+                document.getElementById('achivements_data_li').innerHTML = document.getElementById('achivements_data_li').innerHTML + data;
             }
 
             var myTab = document.getElementById('skill_data');
 
             document.getElementById('skills_data_li').innerHTML="";
-            // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
             for (i = 0; i < myTab.rows.length; i++) {
-                // GET THE CELLS COLLECTION OF THE CURRENT ROW.
-                var objCells = myTab.rows.item(i).cells;
-                // LOOP THROUGH EACH CELL OF THE CURENT ROW TO READ CELL VALUES.
-                
+                var objCells = myTab.rows.item(i).cells;                
                 data = "<li style='font-size:18px;margin-bottom: 5px'>"+
                         objCells.item(0).innerHTML + "</li>";
             document.getElementById('skills_data_li').innerHTML = document.getElementById('skills_data_li').innerHTML + data;
@@ -488,17 +481,13 @@
         })
         .then(response => response.text())
         .then(result => {
-            // Handle the response from the server (e.g., show success message)
             console.log(result);
-            // Refresh the table to show updated data
             fetchData();
         })
         .catch(error => {
             console.error('Error:', error);
         });
     }
-
-    // Fetch education data and populate the table when the page loads
     document.addEventListener('DOMContentLoaded', function() {
         fetchData();
     });
