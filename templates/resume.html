@@ -64,7 +64,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12" style="margin-top: 20px;padding: 10px">
+                        <div class="col-md-9" style="margin-top: 20px;padding: 10px">
                             <h5>Career Objectives</h5>
                             <p style="text-align: justify" id="ucareerobject">{{data[8]}}</p>
                         </div>
@@ -151,6 +151,7 @@
                                 <label for="phnum">Phone number</label>
                                 <input type="text" name="phnum" class="form-control" id="phnum" placeholder="enter your phone number"  required>
                                 <div class="invalid-feedback"> Enter your phone number.</div>
+                                
                             </div> 
                             <div class="col-md-4">
                                 <label for="city">City</label>
@@ -161,6 +162,7 @@
                                 <label for="city">State</label>
                                 <input name="state" type="text" class="form-control" id="state" placeholder="enter your state."  required>
                                 <div class="invalid-feedback"> Enter your state.</div>
+                                
                             </div> 
                             <div class="col-md-12">
                                 <label for="ucareerob">Career Objective</label>
@@ -309,7 +311,6 @@
                 </div>
             </div>
         </div>
-        <header style="margin: 50px;" class="h_color" id="head">
             <div class="text-left">
                 <div style="margin: 50px; background-color: white;"class="container">
                     <div class="row">
@@ -320,7 +321,7 @@
                     
                 </div>
             </div>
-        </header>
+      
 
 
 
@@ -421,9 +422,8 @@
       .then(response => response.json())
       .then(data => {
         var achievementsDiv = document.getElementById('achievements');
-        achievementsDiv.innerHTML = ''; // Clear the existing achievements data
+        achievementsDiv.innerHTML = ''; 
         for (var i = 0; i < data.length; i++) {
-          // Add each achievement as a new line in the achievementsDiv
           achievementsDiv.innerHTML += data[i].achievement + '<br>';
         }
       })

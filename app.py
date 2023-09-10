@@ -201,6 +201,7 @@ def student():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
+        session['student_id'] = username
         id = session['student_id']
         print("id: ", id)
         
@@ -235,7 +236,8 @@ def student():
             else:
                 return "Username and password do not exist!"
         except Exception as e:
-            return f"An error occurred: {str(e)}"
+            return render_template('err.html')
+    
 
     return "This page is for student login. Use POST to login."
 
